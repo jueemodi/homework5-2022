@@ -35,8 +35,8 @@ header {
   color: purple;
 }
 
-.nav_links:visited{
-  color: purple;
+.nav_links li a:visited{
+  color: purple; 
 }
 
 /* border radius curved the top of the cards*/
@@ -95,8 +95,11 @@ header {
   .card {
     flex-basis: 275px;
   }
-  body > header:first-of-type {
+
+  /* ensures that header stays in place even while scrolling, places it at the top*/
+  body > header {
     position:sticky;
+    top:0;
   }
 }
 
@@ -132,12 +135,10 @@ header {
   }
 
   /* get rid of gallery completely */
-  #gallery{
+  #gallery, .gallery{
     display: none;
   }
-  .gallery{
-    display: none;
-  }
+  
   .card{
     border: 2px solid #45ADDD;
     flex-basis: 325px;
