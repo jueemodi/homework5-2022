@@ -1,0 +1,150 @@
+
+/* AIC = 1 means it'll only reanimate when the browser is refreshed */
+#logo{
+  animation-name: logo;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes logo{
+  0% {
+    width:25px; 
+    opacity: 0;
+  }
+  100% { 
+    width: 475px; 
+    opacity: 1;}
+}
+
+body {
+ font-family: 'Poppins', serif;
+ background-image: url(../images/concrete_seamless.png);
+ background-color: #f1f1f1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.nav_links {
+  display: flex;
+  flex-direction: column;
+  color: purple;
+}
+
+.nav_links:visited{
+  color: purple;
+}
+
+/* border radius curved the top of the cards*/
+.card > header { 
+  background-color: #288088;
+  border: 2px solid #45ADAD;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 50px 50px 0px 0px;
+}
+
+/* added border-radius here as well to curve white part that was showing up */
+.card {
+  flex-basis: 450px;
+  /* justify-content: center; */
+  border-radius: 50px 50px 0px 0px;
+}
+.pricing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* adds border + styles gallery pics */
+.gallery img {
+  border: solid 10px #50C7C7;
+  margin: 10px 10px 10px 10px;
+  width: 300px
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*for when screen is bigger than 900px */
+
+/* LOGO needs to be to the left and LINKS to the left */
+@media screen and (min-width: 900px){
+  header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .nav_links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pricing {
+    flex-basis: 275px;
+  }
+  .card {
+    flex-basis: 275px;
+  }
+  body > header:first-of-type {
+    position:sticky;
+  }
+}
+
+/* stops animation when users have their settings to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  #logo{
+    animation: none;
+  }
+}
+
+/* print view in browser */
+@media print { 
+  body{
+    font-family: Arial, Helvetica;
+    background-image: none;
+  }
+  nav {
+    width: 100%
+  }
+  .nav_links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+
+  /* aligns pricing with the bottom */
+  .pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  /* get rid of gallery completely */
+  #gallery{
+    display: none;
+  }
+  .gallery{
+    display: none;
+  }
+  .card{
+    border: 2px solid #45ADDD;
+    flex-basis: 325px;
+  }
+
+  /* adds a thumbs up emoji after the second item in a list in card class */
+  .card > ul li:nth-child(2)::after {
+    content: "\1F44D"
+  }
+}
